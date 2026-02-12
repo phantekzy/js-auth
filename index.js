@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 
 app.post("/register", async (req, res) => {
   try {
-    const { mail, password } = req.body;
+    const { email, password } = req.body;
     // Validation
     if (!email || !password) {
       return res.status(400).json({ error: "Email and password are required" });
@@ -18,7 +18,18 @@ app.post("/register", async (req, res) => {
     // Salting and hashing
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-  } catch (error) {}
+    console.log(`New user registration attempt : ${email}`);
+
+    res.status(200).json({
+      message: "User data processed sucessfully",
+      user: {
+        email: email,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Server Error" });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
