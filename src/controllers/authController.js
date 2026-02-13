@@ -39,11 +39,10 @@ export const loginUser = async (req, res) => {
         .json({ message: "Both email and password are required!" });
     }
     // search the user
-    const result = await pool.query(
-      "SELECT * FROM users WHERE email = $1 RETURNING id,email",
-      [email],
-    );
-    if (result.rows === 0) {
+    const result = await pool.query("SELECT * FROM users WHERE email = $1", [
+      email,
+    ]);
+    if (result.rows.length === 0) {
       return res.status(401).json({ message: "invalid mail or password" });
     }
     const user = result.rows[0];
