@@ -5,7 +5,6 @@ A secure authentication system utilizing Express.js and PostgreSQL. The project 
 ## System Requirements
 - Node.js (v18 or higher)
 - PostgreSQL (v14 or higher)
-- Fedora Linux (or any modern Linux distribution)
 
 
 
