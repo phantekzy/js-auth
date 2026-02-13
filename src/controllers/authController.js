@@ -12,9 +12,9 @@ export const registerUser = async (req, res) => {
 
     // Salting & Hashing
     const saltRounds = 10;
-    const hashedPassword = bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     // Result
-    const result = pool.query(
+    const result = await pool.query(
       "INSERT INTO users(email,password) VALUES ($1,$2) RETURNING id,email",
       [email, hashedPassword],
     );
