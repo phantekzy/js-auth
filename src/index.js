@@ -4,8 +4,9 @@ import authRoutes from "./routes/authRoutes.js";
 const app = express();
 app.use(express.json());
 app.use("/api/auth", authRoutes);
-
-const PORT = process.env.PORT;
+// PORT
+const PORT = process.env.PORT || 3000;
+// PORT LISTENING
 app.listen(PORT, () => {
-  console.log(`The server is running on https:/localhost:${PORT}`);
+  console.log(`The Server is Running on http:/localhost:${PORT}`);
 });
