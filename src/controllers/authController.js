@@ -12,8 +12,8 @@ export const regusterUser = async (req, res) => {
         .json({ message: "Both Email and Password are required!" });
     }
     const saltRounds = 10;
-    const hashedPassword = bcrypt.hash(password, saltRounds);
-    const result = pool.query(
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const result = await pool.query(
       "INSERT INTO users(email,password) VALUES ($1,$2) RETURNING id,email",
       [email, hashedPassword],
     );
