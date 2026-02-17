@@ -2,7 +2,7 @@ import pool from "../config/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-// Register user
+// Register users
 export const regusterUser = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -23,4 +23,9 @@ export const regusterUser = async (req, res) => {
       return res.status(400).json({ message: "Email already exists" });
     res.status(500).json({ error: "Server Error during registration" });
   }
+};
+
+// Login users
+export const loginUser = async (req, res) => {
+  const { email, password } = req.body;
 };
