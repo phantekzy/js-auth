@@ -13,5 +13,10 @@ export const regusterUser = async (req, res) => {
     }
     const saltRounds = 10;
     const hashedPassword = bcrypt.hash(password, saltRounds);
+    const result = pool.query(
+      "INSERT INTO users(email,password) VALUES ($1,$2) RETURNING id,email",
+      [email, hashedPassword],
+    );
+    res.status(200).json({ message: "User created", user: result.rows[0] });
   } catch (error) {}
 };
