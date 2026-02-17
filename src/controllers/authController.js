@@ -18,5 +18,9 @@ export const regusterUser = async (req, res) => {
       [email, hashedPassword],
     );
     res.status(200).json({ message: "User created", user: result.rows[0] });
-  } catch (error) {}
+  } catch (error) {
+    if (error.code === "23505")
+      return res.status(400).json({ message: "Email already exists" });
+    res.status(500).json({ error: "Server Error during registration" });
+  }
 };
