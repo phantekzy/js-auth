@@ -10,14 +10,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             const token = localStorage.getItem("token");
             if (token) {
                 try {
-                    const res = await axios.get('http://localhost:6969//api/auth/profile', {
+                    const res = await axios.get('http://localhost:6969/api/auth/profile', {
                         headers: { Authorization: `Bearer ${token}` }
                     })
                     setUser(res.data.user)
-                } catch (error) {
-
+                } catch (err) {
+                    console.error(err);
+                    localStorage.removeItem("token")
                 }
             }
+            setLoading(false);
         }
+        checkAuth();
     }, [])
+    const logout = () => {
+        localStorage.removeItem("token");
+        setUser(null);
+    }
 }
