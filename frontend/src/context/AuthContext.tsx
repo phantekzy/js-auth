@@ -27,4 +27,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         localStorage.removeItem("token");
         setUser(null);
     }
+    return (
+        <AuthContext.Provider value={{ user, setUser, lodaing, setLoading }}>
+            {children}
+        </AuthContext.Provider>
+    )
 }
