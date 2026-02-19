@@ -1,7 +1,7 @@
-const InputField = () => {
+export default function InputField({ label, ...props }: any) {
     return (
-        <div></div>
+        <div className="mb-4 text-left">
+
+        </div>
     )
 }
-
-export default InputField
