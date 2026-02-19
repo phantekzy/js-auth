@@ -1,7 +1,6 @@
-const NavBar = () => {
-    return (
-        <div></div>
-    )
-}
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
-export default NavBar
+export default function Navbar() {
+    const { user, logout } = useContext(AuthContext)
+}
