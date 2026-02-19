@@ -1,4 +1,8 @@
-export default function InputField({ label, ...props }: any) {
+import type { ComponentPropsWithoutRef } from "react";
+interface InputFieldProps extends ComponentPropsWithoutRef<"input"> {
+    label: string;
+}
+export default function InputField({ label, ...props }: InputFieldProps) {
     return (
         <div className="mb-4 text-left">
             <label className="block text-sm font-semibold text-gray-700 mb-1">{label}</label>
