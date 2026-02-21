@@ -57,7 +57,6 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
     │   ├── App.tsx         # Routing-Konfiguration
     │   ├── main.tsx        # React-Einstiegspunkt
     │   └── .env            # Umgebungsvariablen
-
 ```
 
 ---
@@ -80,36 +79,50 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
 
 ### Backend
 
+```bash
 cd backend
 npm install
+```
 
-# Erstelle eine .env Datei im backend Ordner:
-# PORT=5000
-# DATABASE_URL=dein_postgres_connection_string
-# JWT_SECRET=dein_geheimschlüssel
+**Konfiguration:**
+Erstelle eine `.env` Datei im `backend` Ordner:
+```env
+PORT=5000
+DATABASE_URL=dein_postgres_connection_string
+JWT_SECRET=dein_geheimschlüssel
+```
 
-# Server starten:
+**Server starten:**
+```bash
 node src/index.js
+```
 
 ---
 
 ### Frontend
 
+```bash
 cd frontend
 npm install
+```
 
-# Erstelle eine .env Datei im frontend Ordner:
-# VITE_API_URL=http://localhost:5000
+**Konfiguration:**
+Erstelle eine `.env` Datei im `frontend` Ordner:
+```env
+VITE_API_URL=http://localhost:5000
+```
 
-# Anwendung starten:
+**Anwendung starten:**
+```bash
 npm run dev
+```
 
 ---
 
 ## Sicherheits-Features
 
-- Bcrypt: Sicheres Passwort-Hashing vor dem Speichern in der Datenbank.
-- JWT: Stateless-Authentifizierung für sichere API-Abfragen.
-- Middleware: Schutz von Backend-Routen vor unbefugtem Zugriff.
-- Protected Routes: Clientseitige Zugriffskontrolle für geschützte Seiten.
-- Environment Variables: Schutz sensibler Daten durch .env Dateien.
+- **Bcrypt:** Sicheres Passwort-Hashing vor dem Speichern in der Datenbank.
+- **JWT:** Stateless-Authentifizierung für sichere API-Abfragen.
+- **Middleware:** Schutz von Backend-Routen vor unbefugtem Zugriff.
+- **Protected Routes:** Clientseitige Zugriffskontrolle für geschützte Seiten.
+- **Environment Variables:** Schutz sensibler Daten durch `.env` Dateien.
