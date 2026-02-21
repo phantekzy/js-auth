@@ -1,131 +1,114 @@
-# Full-Stack Authentication System
-Node.js, PostgreSQL, and React (TypeScript)
+# Kopiere den gesamten Inhalt unten in deine README.md
 
-A secure authentication platform featuring a Node.js REST API and a React frontend.  
-This project demonstrates user registration, login, and protected route handling using JSON Web Tokens (JWT).
+# Full-Stack Authentifizierungs-System
+Node.js, PostgreSQL und React (TypeScript)
 
----
-
-## Overview
-
-The system is organized into two primary service layers to maintain a clear separation of concerns between backend logic and frontend application state.
+Eine sichere Authentifizierungs-Plattform bestehend aus einer Node.js REST API und einem React Frontend. 
+Dieses Projekt demonstriert die Benutzerregistrierung, den Login sowie das Handling geschützter Routen mittels JSON Web Tokens (JWT).
 
 ---
 
-## Architecture
+## Übersicht
+
+Das System ist in zwei primäre Service-Layer unterteilt, um eine klare Trennung der Zuständigkeiten (Separation of Concerns) zwischen Backend-Logik und Frontend-Statusverwaltung zu gewährleisten.
+
+---
+
+## Architektur
 
 ### Backend (Node.js & Express)
 
-The backend layer handles authentication and data management responsibilities.
+Die Backend-Schicht übernimmt die Authentifizierung und die Datenverwaltung.
 
-- Processes user registration and login
-- Connects to PostgreSQL using connection pooling
-- Issues and verifies JSON Web Tokens (JWT)
-- Hashes passwords using Bcrypt
-- Protects private endpoints via middleware
+- Verarbeitet Benutzerregistrierung und Login
+- Verbindung zu PostgreSQL mittels Connection Pooling
+- Erstellung und Verifizierung von JSON Web Tokens (JWT)
+- Passwort-Hashing mit Bcrypt
+- Schutz privater Endpunkte durch Middleware
 
 ### Frontend (React & TypeScript)
 
-The frontend layer manages authentication state and client-side routing.
+Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseitige Routing.
 
-- Global authentication state using React Context API (AuthProvider)
-- Route protection through a ProtectedRoute wrapper
-- API communication abstraction
-- Responsive UI styled with Tailwind CSS
+- Globaler Auth-Status über die React Context API (AuthProvider)
+- Routenschutz durch einen ProtectedRoute-Wrapper
+- Abstraktion der API-Kommunikation
+- Responsives UI, gestaltet mit Tailwind CSS
 
 ---
 
-## Directory Structure
+## Verzeichnisstruktur
 
-```text
 .
 ├── backend/
 │   ├── src/
-│   │   ├── config/         # Database configuration
-│   │   ├── controllers/    # Authentication logic
-│   │   ├── middleware/     # JWT verification middleware
-│   │   ├── routes/         # API endpoint definitions
-│   │   └── index.js        # Application entry point
-│   └── .env                # Environment variables
+│   │   ├── config/         # Datenbank-Konfiguration
+│   │   ├── controllers/    # Authentifizierungs-Logik
+│   │   ├── middleware/     # JWT-Verifizierungs-Middleware
+│   │   ├── routes/         # API-Endpunkt-Definitionen
+│   │   └── index.js        # App-Einstiegspunkt
+│   └── .env                # Umgebungsvariablen
 │
 └── frontend/
     ├── src/
-    │   ├── components/     # Reusable UI components
-    │   ├── context/        # Authentication context logic
-    │   ├── layouts/        # Route wrappers and guards
-    │   ├── pages/          # Application views
-    │   ├── App.tsx         # Routing configuration
-    │   └── main.tsx        # React entry point
-    └── .env                # Environment variables
-```
+    │   ├── components/     # Wiederverwendbare UI-Komponenten
+    │   ├── context/        # Auth-Kontext-Logik
+    │   ├── layouts/        # Routen-Wrapper und Guards
+    │   ├── pages/          # Anwendungs-Views (Seiten)
+    │   ├── App.tsx         # Routing-Konfiguration
+    │   ├── main.tsx        # React-Einstiegspunkt
+    │   └── .env            # Umgebungsvariablen
 
 ---
 
 ## Technology Stack
 
-| Layer      | Technology                 |
+| Ebene      | Technologie               |
 |------------|---------------------------|
 | Runtime    | Node.js                   |
 | Backend    | Express.js                |
 | Frontend   | React 18                  |
-| Language   | JavaScript / TypeScript   |
-| Database   | PostgreSQL                |
+| Sprache    | JavaScript / TypeScript   |
+| Datenbank  | PostgreSQL                |
 | Styling    | Tailwind CSS              |
-| Security   | JWT, Bcrypt               |
+| Sicherheit | JWT, Bcrypt               |
 
 ---
 
-## Installation and Setup
+## Installation und Setup
 
 ### Backend
 
-```bash
 cd backend
 npm install
-```
 
-Create a `.env` file:
+# Erstelle eine .env Datei:
+# PORT=5000
+# DATABASE_URL=dein_postgres_connection_string
+# JWT_SECRET=dein_geheimschlüssel
 
-```
-PORT=5000
-DATABASE_URL=your_postgres_connection_string
-JWT_SECRET=your_secret_key
-```
-
-Start the server:
-
-```bash
+# Server starten:
 node src/index.js
-```
 
 ---
 
 ### Frontend
 
-```bash
 cd frontend
 npm install
-```
 
-Create a `.env` file:
+# Erstelle eine .env Datei:
+# VITE_API_URL=http://localhost:5000
 
-```
-VITE_API_URL=http://localhost:5000
-```
-
-Start the application:
-
-```bash
+# Anwendung starten:
 npm run dev
-```
 
 ---
 
-## Security Features
+## Sicherheits-Features
 
-- Password hashing using Bcrypt
-- Stateless authentication using JWT
-- Middleware-based API protection
-- Client-side protected routes
-- Environment variable configuration
-
+- Passwort-Hashing mit Bcrypt
+- Stateless-Authentifizierung via JWT
+- Middleware-basierter API-Schutz
+- Clientseitig geschützte Routen
+- Konfiguration über Umgebungsvariablen
