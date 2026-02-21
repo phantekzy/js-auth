@@ -37,6 +37,7 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
 
 ## Verzeichnisstruktur
 
+```text
 .
 ├── backend/
 │   ├── src/
@@ -56,6 +57,7 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
     │   ├── App.tsx         # Routing-Konfiguration
     │   ├── main.tsx        # React-Einstiegspunkt
     │   └── .env            # Umgebungsvariablen
+```
 
 ---
 
