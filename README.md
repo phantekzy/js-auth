@@ -1,5 +1,3 @@
-# Kopiere den gesamten Inhalt unten in deine README.md
-
 # Full-Stack Authentifizierungs-System
 Node.js, PostgreSQL und React (TypeScript)
 
@@ -39,7 +37,6 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
 
 ## Verzeichnisstruktur
 
-```text
 .
 ├── backend/
 │   ├── src/
@@ -60,7 +57,6 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
     │   ├── main.tsx        # React-Einstiegspunkt
     │   └── .env            # Umgebungsvariablen
 
-```
 ---
 
 ## Technology Stack
@@ -84,7 +80,7 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
 cd backend
 npm install
 
-# Erstelle eine .env Datei:
+# Erstelle eine .env Datei im backend Ordner:
 # PORT=5000
 # DATABASE_URL=dein_postgres_connection_string
 # JWT_SECRET=dein_geheimschlüssel
@@ -99,7 +95,7 @@ node src/index.js
 cd frontend
 npm install
 
-# Erstelle eine .env Datei:
+# Erstelle eine .env Datei im frontend Ordner:
 # VITE_API_URL=http://localhost:5000
 
 # Anwendung starten:
@@ -109,8 +105,8 @@ npm run dev
 
 ## Sicherheits-Features
 
-- Passwort-Hashing mit Bcrypt
-- Stateless-Authentifizierung via JWT
-- Middleware-basierter API-Schutz
-- Clientseitig geschützte Routen
-- Konfiguration über Umgebungsvariablen
+- Bcrypt: Sicheres Passwort-Hashing vor dem Speichern in der Datenbank.
+- JWT: Stateless-Authentifizierung für sichere API-Abfragen.
+- Middleware: Schutz von Backend-Routen vor unbefugtem Zugriff.
+- Protected Routes: Clientseitige Zugriffskontrolle für geschützte Seiten.
+- Environment Variables: Schutz sensibler Daten durch .env Dateien.
