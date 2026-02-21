@@ -37,7 +37,7 @@ Die Frontend-Schicht verwaltet den Authentifizierungs-Status und das clientseiti
 
 ## Verzeichnisstruktur
 
-```text
+```
 .
 ├── backend/
 │   ├── src/
