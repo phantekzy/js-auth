@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react"
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import InputField from "../components/InputField";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -22,7 +23,18 @@ const Login = () => {
     return (
         <div className="flex items-center justify-center pt-10">
             <div className="w-full max-w-md p-8 bg-white rounded-3xl shadow-xl border border-gray-100">
-                <h1>Login</h1>
+                <h1 className="text-3xl font-bold mb-6 text-gray-600">Sign in</h1>
+                <form
+                >
+                    <InputField
+                        label="Email"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+
+                </form>
             </div>
 
         </div>
