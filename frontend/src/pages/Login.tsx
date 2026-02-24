@@ -1,19 +1,23 @@
 import { useState, type FormEvent } from "react"
 import { useAuth } from "../hooks/useAuth";
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import api from "../api/axios";
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { setUser } = useAuth();
-    const navigate = useNavigation();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         try {
             const res = await api.post('/auth/login', { email, password })
-        } catch (error) {
-
+            localStorage.setItem('token', res.data.token)
+            setUser(res.data.user)
+            navigate('/')
+        } catch (err: any) {
+            alert(err.response?.data?.message || 'Login failed');
         }
     }
     return (
