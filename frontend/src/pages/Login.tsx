@@ -24,13 +24,19 @@ const Login = () => {
         <div className="flex items-center justify-center pt-10">
             <div className="w-full max-w-md p-8 bg-white rounded-3xl shadow-xl border border-gray-100">
                 <h1 className="text-3xl font-bold mb-6 text-gray-600">Sign in</h1>
-                <form
-                >
+                <form onSubmit={handleSubmit} >
                     <InputField
                         label="Email"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <InputField
+                        label="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                     />
 
